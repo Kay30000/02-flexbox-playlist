@@ -11,6 +11,18 @@ body {
   padding: 20px;
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  justify-content: flex-start;
+  max-width: 940px;
+  margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 /* Header styling */
 header {
   text-align: center;
@@ -26,6 +38,7 @@ header h1 {
 .album {
   position: relative;
   width: 220px; 
+  flex: 0 0 220px;
   background: #fff;
   border: 1px solid #ddd;
 }
@@ -51,5 +64,33 @@ header h1 {
 }
 
 .overlay {
- display: none;
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.album:hover .overlay {
+  display: flex;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+
+  .album {
+    width: 100%;
+    flex: 1 1 auto;
+  }
 }
